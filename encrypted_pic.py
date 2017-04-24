@@ -29,7 +29,7 @@ class EncryptedImage:
         self.mode = mode
         self.scheme = scheme
         self.iv = Random.new().read(self.scheme.block_size)
-        self.cipher = self.scheme.new(key[:self.scheme.block_size], self.mode, self.iv)
+        self.cipher = self.scheme.new(key, self.mode, self.iv)
 
     def enc(self):
         h,w,d = self.tmp_img.shape
@@ -63,13 +63,20 @@ if __name__ == '__main__':
     if mode_ is '' or int(mode_) not in [1,2,3]:
         print("\nNot a valid choice, defaulting to CBC\n")
         mode_ = 2
-    key = raw_input("Choose a key with "+str(scheme.block_size)+" letters or numbers\n")
+    if sch != 1:
+        key = raw_input("Choose a key with 16 letters or numbers\n")
+    else:
+        key = raw_input("Choose a key with "+str(scheme.block_size)+" letters or numbers\n")
     if key is '' or len(str(key))!= scheme.block_size:
-        print("\nNot a valid key length, defaulting to \'Sixteen byte key\'\n")
-        key='Sixteen byte key'
+        if int(sch) == 0:
+            print("\nNot a valid key length, defaulting to \'Sixteen \'\n")
+            key='Sixteen '
+        else:
+            print("\nNot a valid key length, defaulting to \'Sixteen byte key\'\n")
+            key='Sixteen byte key'
     im = EncryptedImage(scheme,int(mode_),key,im_src_in)
     print("\nEncrypting image\n")
-    cv2.imwrite("enc.jpeg",im.enc())
+    cv2.imwrite(str(["DES","DES3","AES"][int(sch)])+"_"+str(["ECB","CBC","CFB"][int(mode_)])+"_enc.jpeg",im.enc())
     print("\nEncryption done\n")
     print("\nDecrypting image\n")
     cv2.imwrite("dec.jpeg",im.dec())
