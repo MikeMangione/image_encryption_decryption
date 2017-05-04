@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>CryptoFAQ</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+<div id="title">
+	<header>
+		<h1><a href= "index.html">CryptoFAQ</a></h1>
+	</header>
+</div>
+
+<nav>
+	<ul>
+		<li><a href="#1">Basics</a></li>
+		<li><a href="#2">Cipher Breakdown</a></li>
+		<li><a href="#3">XOR Widget</a></li>
+		<li><a href="#4">Common Ciphers</a></li>
+		<li><a href="#5">Toy Image Encryptor</a></li>
+		<li><a href="#6">Resources</a></li>
+	</ul>
+
+</nav>
+
+	<div id="content">
+        	<h2 id="1">So what is cryptography?</h2>
+
+		<p>Cryptography, crypto for short, is the study of creating encryption devices. Cryptanalysis is the study of breaking these schemes.</p> 
+
+		<h2>Ok, so what?</h2>
+
+		<p>Ciphers are basically what protects all your internet activity, communications, etc. e.g. when you send a message in facebook messenger, no outside party can read what you sent. Or when you buy something on Amazon, no one can have access to your credit card information.</p>
+
+		<h2>Why does that matter?</h2>
+
+		<p>Thinking big picture, cryptography is a big deal for security and privacy. (Have you seen the Imitation Game? It’s kinda like that) Cryptography is why there was that big scandal with Apple and the FBI in 2016. It’s all about protecting your information so that no potentially malicious parties can read, access, or change it.</p>
+
+		<h2>How does this work?</h2>
+
+		<p>So in cryptography, we have a few people that represent the typical players in encryption. There’s Alice and Bob, the two people who are trying to communicate. There is also Eve, who is the adversary, also known as the person trying to access Alice and Bob’s communication. She is called Eve when she’s EVEsdropping (just looking at the conversation) and Mallory if she is MALicious (actively trying to change or influence the conversation). <br><br> There are a number of crypto schemes implemented throughout the web. But basically, the goal is for Alice to send something to Bob without Eve being able to learn or change it and with Bob knowing it was Alice who sent it.</p>
+		
+		<figure>
+		<img src="alice.png" alt="alice">
+		<figcaption>Alice</figcaption>
+		</figure>
+		<figure>
+		<img src="bob.png" alt="bob"> 
+		<figcaption>Bob</figcaption>
+		</figure>
+		<figure>
+		<img src="eve.png" alt="eve">
+		<figcaption>Eve</figcaption>
+		</figure>
+	<br clear="all" />
+	<br>
+		
+		<h2 id="2">What exactly is a cipher?</h2>
+
+		<p>You might think of a cipher like a safe: everybody might be able to see that it exists, but you would have to put in a lot of work to see what it contains. All ciphers accept some form of sensitive data, or plaintext, and some form of secret input, often referred to as a key. The key is used to encrypt the sensitive information with a number of computational operations, which differentiates the various ciphers. Often ciphers can be decrypted, which amounts to completing the operations in reverse with the same key as before. (Note: some ciphers only encrypt information, but these are rare and generally not helpful for most common uses).</p>
+
+		<h2>Why are there multiple ciphers if they do the same thing?</h2>
+
+		<p>Well, they don’t actually do the same thing when you get down to the nitty gritty. There are a lot of pieces in crypto schemes, some of which can actually create problems for security if the scheme is implemented incorrectly. </p>
+
+		<h2>What is a Cipher made of?</h2>
+
+		<p>A cipher is comprised of at least two elements: the cipher mode (of which there are many) and the key (discussed above). Ciphers might also contain an Initialization Vector (IV), which is an additional random element to improve the security of the cipher. In general, most truly secure ciphers require an IV, but some do not require the IV to be hidden like the key.</p>
+
+		<h2>XOR: A Cryptographer’s Favorite Operator</h2>
+
+		<p>The XOR operation (symbolically represented by ) is a special operation that comes up in cryptography and many other computer sciences domains all the time. XOR is short for Exclusive Or, and it can be used to compare whether two inputs are different from each other. <br><br> Some XOR inputs and outputs are included below:</p>
+		<table>
+  			<tr>
+    				<th>P</th>
+    				<th>XOR</th>
+    				<th>Q</th>
+    				<th>= </th>
+    				<th>Value</th>
+  			</tr>
+  			<tr>
+    				<td>True</td>
+    				<td>XOR</td>
+    				<td>True</td>
+    				<td>= </td>
+    				<td>False</td>
+  			</tr>
+  			<tr>
+  				<td>True</td>
+  				<td>XOR</td>
+  				<td>False</td>
+  				<td>= </td>
+  				<td>True</td>
+  			</tr>
+  			<tr>
+  				<td>False</td>
+  				<td>XOR</td>
+  				<td>True</td>
+  				<td>= </td>
+  				<td>True</td>
+  			</tr>
+  			<tr>
+  				<td>False</td>
+  				<td>XOR</td>
+  				<td>False</td>
+  				<td>= </td>
+  				<td>False</td>
+  			</tr>
+		</table>
+		<p>To make things interesting, we can replace True and False with 1 and 0 (their common binary representations.). The above examples would then become:</p>
+		<table>
+  			<tr>
+    				<th>P</th>
+    				<th>XOR</th>
+    				<th>Q</th>
+    				<th>= </th>
+    				<th>Value</th>
+  			</tr>
+  			<tr>
+    				<td>1</td>
+    				<td>XOR</td>
+    				<td>1</td>
+    				<td>= </td>
+    				<td>0</td>
+  			</tr>
+  			<tr>
+  				<td>1</td>
+  				<td>XOR</td>
+  				<td>0</td>
+  				<td>= </td>
+  				<td>1</td>
+  			</tr>
+  			<tr>
+  				<td>0</td>
+  				<td>XOR</td>
+  				<td>1</td>
+  				<td>= </td>
+  				<td>1</td>
+  			</tr>
+  			<tr>
+  				<td>0</td>
+  				<td>XOR</td>
+  				<td>0</td>
+  				<td>= </td>
+  				<td>0</td>
+  			</tr>
+		</table>
+		<p>We can actually XOR longer combinations of ones and zeros (bit sequences):</p>
+		<table>
+  			<tr>
+    				<th>P</th>
+    				<th>XOR</th>
+    				<th>Q</th>
+    				<th>= </th>
+    				<th>Value</th>
+  			</tr>
+  			<tr>
+    				<td>11</td>
+    				<td>XOR</td>
+    				<td>00</td>
+    				<td>= </td>
+    				<td>11</td>
+  			</tr>
+  			<tr>
+  				<td>11</td>
+  				<td>XOR</td>
+  				<td>01</td>
+  				<td>= </td>
+  				<td>10</td>
+  			</tr>
+  			<tr>
+  				<td>10</td>
+  				<td>XOR</td>
+  				<td>01</td>
+  				<td>= </td>
+  				<td>11</td>
+  			</tr>
+
+		</table>
+		<p>And so on…</p>
+		<p id="3">Many ciphers frequently utilize XOR operations, as it is a great way to combine characteristics of different values. Feel free to experiment with the XOR calculator below:</p>
+<p>First Input:</p>
+    <select id="first_type">
+      <option value="bin">Binary</option>
+      <option value="hex">Hex</option>
+      <option value="digit">Digits</option>
+    </select>
+    <input type="text" id="input_one" value=''><p id="warn_1"></p>
+    <p>Second Input:</p>
+    <select id="second_type">
+      <option value="bin">Binary</option>
+      <option value="hex">Hex</option>
+      <option value="digit">Digits</option>
+    </select>
+    <input type="text" id="input_two" value=''><p id="warn_2"></p>
+    <p>Output:</p>
+    <select id="output_type">
+      <option value="bin">Binary</option>
+      <option value="hex">Hex</option>
+      <option value="digit">Digits</option>
+    </select>
+    <input type="text" id="output" value=''><br>
+    <button type="button" onclick="myFunction()">XOR!</button>
+
+    <script>
+      function myFunction() {
+        var d_types = ["bin","hex","digit"]
+        var d_encodings = [2,16,10]
+        var ind1 = d_types.indexOf(document.getElementById('first_type').value)
+        var ind2 = d_types.indexOf(document.getElementById('second_type').value)
+        var indout = d_types.indexOf(document.getElementById('output_type').value)
+        var val1 = parseInt(document.getElementById('input_one').value,d_encodings[ind1])
+        document.getElementById('warn_1').innerHTML = "";
+        if (isNaN(val1)){
+          document.getElementById('warn_1').innerHTML = "Couldn't read first input";
+          document.getElementById('input_one').value = 0;
+        }
+        var val2 = parseInt(document.getElementById('input_two').value,d_encodings[ind2])
+        document.getElementById('warn_2').innerHTML = "";
+        if (isNaN(val2)){
+          document.getElementById('warn_2').innerHTML = "Couldn't read second input";
+          document.getElementById('input_two').value = 0;
+        }
+        var out = val1 ^ val2
+        document.getElementById('output').value = out.toString(d_encodings[indout])
+      }
+    </script>
+		
+		<br> <br>
+		<h2 id="4">Common Ciphers</h2>
+
+		<h4>DES</h4>
+		<p>DES (Data Encryption Standard) was the first widely adapted block cipher, a methodology for taking fixed amounts of input information and encrypting it in a way to make the output intelligible. DES on its own (or any block cipher for that matter) cannot be relied upon to sufficiently secure your information. Block ciphers, therefore, are strung together or given unique characteristics to make their output more secure. <br> DES was developed by IBM in the 1970’s, and is now considered an outdated cipher mechanism.</p>
+
+
+
+		<h4>Triple DES</h4>
+		<p>As the name suggests, Triple DES (DES3) is the result of chaining three DES cipher blocks together to encrypt a single block of information. The method of chaining cipher blocks together has been widely adapted and modified in a number of ways. Given the underlying DES block is defunct, Triple DES is considered insecure.<br>
+It is worth noting that just because an encryption scheme is considered broken or insecure, that does not mean that it is out of use! Much work has been done to analyze the current ciphers used by sites and provide that information to the public, and we’ve included some in the resources section of CryptoFAQ.</p>
+
+		<h4>AES Electronic Code Book (ECB)</h4>
+		<p>Blocks of input plaintext are independently mapped to ciphertext blocks. If any block of input is repeated, the resulting ciphertexts will be identical. Given a large enough plaintext, this might allow an attacker to exploit patterns in the ciphertext and make a reasonable guess at your plaintext.</p>
+
+		<h4>AES Cipher-Block Chaining (CBC)</h4>
+		<p>The output from every ciphertext block will be dependant on all previously produced ciphertexts, preventing identical plaintext blocks from having the same ciphertext output. </p>
+
+		<h4>AES Output FeedBack (OFB)</h4>
+		<p>Output FeedBack mode is a stream cipher, where an IV is encrypted using multiple rounds of AES chained together. Each block of plaintext is sequentially XORed with the IV ciphertext, which is updated after every AES round. <br>
+OFB is considered a stream cipher, because its output after each block becomes the input for the next block. Block Ciphers like CBC, conversely, XOR the input from the previous block to the output of the current block. Both stream ciphers and block ciphers are considered more secure than ECB, but the way they link the sequential AES blocks are fundamentally different. </p>
+
+		<h4>AES Cipher Feedback Mode (CFB)</h4>
+		</p>Cipher Feedback Mode requires an IV and chains the final ciphertext from each round in a stream cipher format. This means at the end of every round the output cipher text is both output to the final ciphertext for the entire string, and it also impacts the generation of the next cipher output.</p>
+
+		<h4>AES Counter Mode (CTR)</h4>	
+		<p>Counter Mode is also a stream cipher, but each AES block takes a new counter value as input (as opposed to an IV that has been encrypted some number of times). At current point, any function can be used to create counters so long as counters do not repeat for a single key. Non-repeating counters are essential for a successful CTR cipher, as a single repetition could expose the cipher to ECB vulnerabilities.</p>
+
+		<h4>AES Open PGP</h4>
+		<p>Open PGP is actually a modified version of CFB, where an encrypted IV is transmitted to the cipher. This IV is used to ensure the proper key is used.</p>
+</p>
+
+	<h2 id="5">Toy Image Encryptor</h2>
+
+	<p>It is common practice for cryptographers to implement a simple version of ciphers for implementation at scale when they want to test the functionality of the cipher, known as a “toy” cipher. The included images have been encrypted using what can be considered a “toy” image encryption program. Below is a high-level outline of what the toy encryption routine does:<br> <br>
+
+An image is read from your computer, along with the dimensions of the image<br>
+The image is reshaped to a single string of bytes<br>
+A block cipher and applicable mode (of your choosing) are applied to the image bytestring<br>
+The encrypted bytes are then reshaped to the original image dimensions<br>
+The encrypted image is written to file<br> <br>
+
+You might notice from the samples below that using ECB in this way has some significant problems! The original image can almost be completely seen in the encrypted image. This is because ECB mode using single, block-by-block encryption, meaning similar blocks of plaintext (or plain-image) will produce the same encrypted output. A simple example might be Eve’s hair, which (aside from the color change) remains constant in shape in each ECB output.<br>
+
+Notice that CBC (which certainly has weaknesses of it’s own) manages to make the image visually incoherent. This is because it introduces the concept of chained cipher blocks, ensuring that the previous encryptions will impact each sequential plaintext block’s encryption. This tool is free, and you can encrypt any image of your choice with it. If you would like to try it for yourself, go to <a href="https://github.com/MikeMangione/image_encryption_decryption">this</a> github.</p>
+<figure >
+    <img src=https://raw.githubusercontent.com/MikeMangione/image_encryption_decryption/master/DES_CBC_enc.jpeg alt="random" title="DES EBC" > 
+<figcaption>DES EBC</figcaption>
+</figure>
+<figure>
+    <img src=https://raw.githubusercontent.com/MikeMangione/image_encryption_decryption/master/DES3_CBC_enc.jpeg alt="random" title="DES3 EBC" >
+<figcaption>DES3 EBC</figcaption>
+</figure>
+<figure>
+    <img src=https://raw.githubusercontent.com/MikeMangione/image_encryption_decryption/master/AES_CBC_enc.jpeg alt="random" title="AES EBC" >
+<figcaption>AES EBC</figcaption>
+</figure>
+<figure>
+    <img src=https://raw.githubusercontent.com/MikeMangione/image_encryption_decryption/master/AES_CFB_enc.jpeg alt="random" title="AES CBC" >
+<figcaption>AES CBC</figcaption>
+</figure>
+<br clear="all" />
+	<br>
+		
+	<h2 id="6">Resources</h2>
+	<p>This site illustrates the motivation for our image encryptor, along with the original TUX example: <a href="https://blog.filippo.io/the-ecb-penguin/">link</a> <br> If you happen to know Python or are interested in how the Image Encryption tool was made, the PyCrypto documentation uses fairly simple language and is quite thorough: <a href="https://www.dlitz.net/software/pycrypto/api/2.6/">link</a><br>If you are interested in a verbose, but more complete introduction to Cryptography, Gary Kessler provides a well organized paper here:<a href="http://www.garykessler.net/library/crypto.html">link</a><br>And on a lighter note, here’s a list of some “alternative” security recommendations that we don’t suggest you follow: <a href="https://xkcd.com/1820/">link</a><br>
+	<a href="https://jve.linuxwall.info/blog/index.php?post/TLS_Survey">TLS Survey</a> <br>
+	<a href="https://www.usenix.org/conference/soups2016/technical-sessions/presentation/porter-felt">Explaining Google's icons</a><br>
+	<a href="https://www.usenix.org/conference/soups2016/program">Papers presented at Symposium on Usable Privacy and Security (SOUPS)</a><br>
+	<a href="https://www.theguardian.com/technology/2017/jan/13/whatsapp-backdoor-allows-snooping-on-encrypted-messages">Guardian article on Whatsapp vulnerabilities</a> <br>
+	<a href="https://whispersystems.org/blog/there-is-no-whatsapp-backdoor/">Whatsapp response to Guardian article</a> <br>
+	<a href="https://tobi.rocks/2016/04/whats-app-retransmission-vulnerability/">More on Whatsapp vulnerability</a><br>
+	<a href="https://www.nist.gov/news-events/news/2016/10/security-fatigue-can-cause-computer-users-feel-hopeless-and-act-recklessly">Security fatigue</a><br>
+	<a href="https://www.ftc.gov/system/files/documents/public_comments/2016/10/00056-129171.pdf">Security risk decisions</a>
+	</p>
+        </div>
+	
+<footer>
+	<p>design and content created by Selina Gerosa and Mike Magnione &copy; 2017 </p>
+</footer>
+
+</body>
+</html>

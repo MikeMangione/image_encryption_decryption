@@ -76,7 +76,7 @@ if __name__ == '__main__':
             key='Sixteen byte key'
     im = EncryptedImage(scheme,int(mode_),key,im_src_in)
     print("\nEncrypting image\n")
-    cv2.imwrite(str(["DES","DES3","AES"][int(sch)])+"_"+str(["ECB","CBC","CFB"][int(mode_)])+"_enc.jpeg",im.enc())
+    cv2.imwrite(str(["DES","DES3","AES"][int(sch)])+"_"+str(["ECB","CBC","CFB"][int(mode_)-1])+"_enc.jpeg",im.enc())
     print("\nEncryption done\n")
     print("\nDecrypting image\n")
     cv2.imwrite("dec.jpeg",im.dec())

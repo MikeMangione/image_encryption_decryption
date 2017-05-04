@@ -1,0 +1,113 @@
+/*https://codepen.io/gschier/pen/HCoqh made the basic light box but i made the rest binch*/
+
+/*responsive business */
+
+
+    
+    /*header and footer*/
+    header {
+        margin:0px;
+    }
+    
+    #title {
+
+        width:80%;
+        padding-bottom: 50px;
+        padding-top:2%;
+   	left:15px;
+    }
+    
+    footer {
+        background-color:Gainsboro;
+        display:block;
+        clear: both;
+        text-align:center;
+        width:100%;
+    }
+    
+    
+    /*nav and list */
+    nav {
+        
+        display:block;
+        width:25%;
+        position:fixed;
+        text-align: center;
+        background-color: Red;
+        right:0%;
+        top:25%;
+        padding-right:20px;
+    }
+    
+    ul { list-style-type:none}
+    li {
+        font-size: 25px;
+        padding-bottom:10px;
+    }
+    
+    /*img formatting and classes*/
+    
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    
+    #content {
+        width:70%;
+        position:static;
+        float:left;
+        line-height:150%;
+        padding-right: 1%;
+        padding-left: 3%;
+        padding-top:3%;
+    }
+    
+    body {
+        margin:0;
+        padding:0;
+        max-width: 1200px;
+        font-family: Helvetica, Veranda, Arial, sans-serif;
+    }
+    
+    /* basic h design */
+    
+    h1 {
+        margin:0;
+        padding:0;
+        float:right;
+        font-size:130px;
+        line-height:90%;
+        
+    }
+    
+    h2 {
+        margin:0;
+        border-bottom:50px;
+        font-size:30px;
+        line-height:100%
+    }
+    h3 { display:inline; 
+    padding-right:30%;
+    text-align:center;}
+    
+    	
+  figure {
+  
+    width: 20%;
+    float: left;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+    padding-left:5%;
+}
+
+   /*link stuff*/
+   h1 a { 
+   	color:Black;
+   	text-decoration:none;
+   }
+   
+   li a { color:White; text-decoration:none;}
+   li a:visited {color:White; text-decoration:none;}
